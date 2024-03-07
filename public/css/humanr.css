@@ -1,0 +1,10 @@
+/*** Styles for humanr - medium screen above ***/
+/* Min screen size is ...px */
+body {
+  /* background-color: purple; */
+  font-family: Nulito;
+}
+
+i.medium-size {
+  font-size: 1em;
+}
