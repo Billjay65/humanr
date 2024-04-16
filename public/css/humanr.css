@@ -1,10 +1,169 @@
-/*** Styles for humanr - medium screen above ***/
-/* Min screen size is ...px */
+/*** Styles for humanr ***/
+/* Styles which apply to large screen and mobile screen
+   break points is 768px and 992px 
+   KEY>> In bootstrap 5: small is 576px, medium is 768px
+         and large is 992px;
+   mobile first styling method used in this file
+   screen size below medium md (768px)
+*/
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: rgb(31, 73, 125);
+  --white: #ffffff;
+  --hover_color: #0000ff;
+  --orange: #ffd700;
+  --cream_white: #fffaf0; 
+  --sky_blue: #1e90ff; 
+  --deep_sky_blue : rgb(85, 142, 213);
+  --crimson: #dc143c;
+  --black: #343434;
+  --light_gray: #f8f8f8;
+}
+
 body {
-  /* background-color: purple; */
-  font-family: Nulito;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 95%;
+  /* font-family: Nulito;*/
+  /*background-color: var(--deep_sky_blue);*/
+  color: var(--black);
 }
 
 i.medium-size {
   font-size: 1em;
+}
+
+.doc_container {
+  display: flex;
+  /*background-color: yellow;*/
+  padding: 0px;
+}
+
+.content_container {
+  width: 100%;
+  min-width: 360px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 5px solid crimson;
+}
+
+.left-bar {
+  display: none;
+}
+
+.right-bar {
+  display: none;
+}
+
+.navbar {
+  background-color: var(--deep_sky_blue);
+}
+
+nav .logo {
+  width: 70px;
+  height: 40px;
+}
+
+.partnering {
+  min-height: 350px;
+}
+
+.navbar-expand-md .nav-item a{
+  color: white;
+}
+
+.article { 
+  min-height: 250px;
+  border: 2px solid gold;
+  border-radius: 10px;
+}
+
+.shadow {
+  box-shadow: 0 0 3px 3px #5d5a5a;
+}
+
+.slider {
+  display: flex;
+  background-color: rgb(220, 230, 234);
+  min-height: 340px;
+  padding: 8px 4px;
+  overflow: auto;
+}
+
+/* Hiding scroll bar for chrome 
+
+.side-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hiding scrollbar for IE and Firefox 
+.side-content {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*/
+
+/*** Setting scrollbar widths ***/
+/* width */
+.slider::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.slider::-webkit-scrollbar-track {
+  background-color: rgb(223, 226, 226);
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background: #858181;
+  border-radius: 5px;
+}
+
+.slider::-webkit-scrollbar-thumb:hover {
+  background: #878787;
+}
+
+.tab_signup .nav-item a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Intermediate styles: screen between 768px (...) 
+   and 992px () ... in bootstrap 5 */
+@media screen and (min-width: 768px) {
+
+.doc_container {
+  /*background-color: skyblue;*/
+}
+
+}
+
+/* Large screen styles : min-width 992px which is ...
+ * in bootstrap 5
+ */
+@media screen and (min-width: 992px) {
+
+.doc_container {
+  /*background-color: #870000ad;*/
+}
+
+.content_container {
+  width: 70%;
+  border: 2px solid crimson;
+}
+
+.left-bar {
+  display: block;
+  width: 20%;
+  border: 5px solid green;
+}
+
+.right-bar {
+  display: block;
+  width: 10%;
+  border: 5px solid green;
+}
+
 }

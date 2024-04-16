@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\Job;
 
 class JobAssignmentTest extends TestCase
 {
@@ -17,10 +18,9 @@ class JobAssignmentTest extends TestCase
     {
         $newJob = Job::create([
             'description' => 'My new job',
-             'start_date' => 'Nov 10 2023',
+             'start_date' => '2023-11-05',
         ]); 
         
-        $this->get('/job/create/job')
-            -assertSee('My new job');
+        $this->get('/job/create/job')->assertSee('My new job');
     }
 }
