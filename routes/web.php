@@ -16,9 +16,15 @@ use App\Http\Controllers\MyController;
 */
 
 
+/*
 Route::get('/', function () {
     return view('welcome_humanr');
 });
+*/
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'home']);
+
+Route::get('/about', [\App\Http\Controllers\PagesController::class, 'about']);
+Route::get('/contact', [\App\Http\Controllers\PagesController::class, 'contact']);
 
 // The route we have created to show all jobs in database
 Route::get('/job', [\App\Http\Controllers\JobController::class, 'index']);
@@ -36,6 +42,25 @@ Route::put('/job/{job}/edit',
     [\App\Http\Controllers\JobController::class, 'update']); //commits edited job to the database 
 Route::delete('/job/{job}', 
     [\App\Http\Controllers\JobController::class, 'destroy']); //deletes job from the database
+    
+/**
+ * Routes for user in database
+ */
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
+
+Route::get('/user/{user}', 
+    [\App\Http\Controllers\UserController::class, 'show']);
+    
+Route::get('/user/create/user', 
+    [\App\Http\Controllers\UserController::class, 'create']); //shows create user form
+Route::post('/user/create/user',
+    [\App\Http\Controllers\UserController::class, 'store']); //saves the created user to the databse
+Route::get('/user/{user}/edit', 
+    [\App\Http\Controllers\UserController::class, 'edit']); //shows edit user form
+Route::put('/user/{user}/edit', 
+    [\App\Http\Controllers\UserController::class, 'update']); //commits edited user to the database 
+Route::delete('/user/{user}', 
+    [\App\Http\Controllers\UserController::class, 'destroy']); //deletes user from the database
 
 // requesting a new page
 Route::get('/hello', function () {
@@ -87,13 +112,13 @@ Route::get('hello/{name}', function ($name) {
     echo "Hello " . $name;
 });
 
-// Latest syntax in laravel 8. Use this for entire app
-Route::get('about', [MyController::class, 'about']);
-
-
-
 
 //Route::get('/', 'App\Http\Controllers\TasksController@index');
 Route::get('tasks/create', 'App\Http\Controllers\TasksController@create');
 Route::post('tasks', 'App\Http\Controllers\TasksController@store');
+
+/*
+// Latest syntax in laravel 8. Use this for entire app
+Route::get('about', [MyController::class, 'about']);
+*/
 
